@@ -8,7 +8,7 @@ package top_env_pkg;
 //INCLUDE DE LA MACRO
   `include "uvm_macros.svh"
   import uvm_pkg::*;
-
+import spi_uvc_pkg::*;
   //archivos
   `include "top_env.sv"
 

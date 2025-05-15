@@ -34,7 +34,7 @@ endfunction:new
 
 function void top_test::build_phase(uvm_phase phase);
 //Aqui creas el objeto instanciadndo similar al utilizar new()
-m_env = top_env::type_id::create("m_env",this); //UNA VEZ AGREADO EL ENVIRONMENT, LO CONSTRUIOMOS
+m_env = top_env::type_id::create("m_env",this); //UNA VEZ AGREADO EL ENVIRONMENT, LO CONSTRUIMOS
 endfunction:build_phase
 
 function void top_test::end_of_elaboration_phase(uvm_phase phase);
