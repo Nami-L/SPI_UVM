@@ -14,7 +14,7 @@ class top_test extends uvm_test;
 
   `uvm_component_utils(top_test)
   //instanciar el environment, declarando el objeto
-  //  top_env m_env
+    top_env m_env ;//: PARA PODER TENER ACCESO AL ENV, TENEMOS QUE AGREGARLO EN EL PACKAGE DEL TOP
 
 //Agregar primero el constructor
 extern function new(string name, uvm_component parent);
@@ -34,7 +34,7 @@ endfunction:new
 
 function void top_test::build_phase(uvm_phase phase);
 //Aqui creas el objeto instanciadndo similar al utilizar new()
-//m_env = top_env::type_id::create("m_env",this);
+m_env = top_env::type_id::create("m_env",this); //UNA VEZ AGREADO EL ENVIRONMENT, LO CONSTRUIOMOS
 endfunction:build_phase
 
 function void top_test::end_of_elaboration_phase(uvm_phase phase);

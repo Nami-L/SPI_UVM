@@ -2,9 +2,11 @@
 2020.2
 Nov  8 2024
 22:36:55
-/home/nami/SPI_UVM/rtl/spi_ip.sv,1747257772,systemVerilog,,/home/nami/SPI_UVM/verification/uvm/tests/top_test_pkg.sv,,spi_ip,,uvm,,GIT_DIR="/home/nami/SPI_UVM/verification/uvm",,,,
+/home/nami/SPI_UVM/rtl/spi_ip.sv,1747257772,systemVerilog,,/home/nami/SPI_UVM/verification/uvm/env/top_env_pkg.sv,,spi_ip,,uvm,,GIT_DIR="/home/nami/SPI_UVM/verification/uvm",,,,
+/home/nami/SPI_UVM/verification/uvm/env/top_env.sv,1747331169,verilog,,,,,,,,,,,,
+/home/nami/SPI_UVM/verification/uvm/env/top_env_pkg.sv,1747331146,systemVerilog,/home/nami/SPI_UVM/verification/uvm/tests/top_test_pkg.sv,/home/nami/SPI_UVM/verification/uvm/tests/top_test_pkg.sv,/tools/Xilinx/Vivado/2024.2/data/xsim/system_verilog/uvm_include/uvm_macros.svh;/home/nami/SPI_UVM/verification/uvm/env/top_env.sv,top_env_pkg,,uvm,,GIT_DIR="/home/nami/SPI_UVM/verification/uvm",,,,
 /home/nami/SPI_UVM/verification/uvm/sv/spi_uvc_if.sv,1747288001,systemVerilog,,/home/nami/SPI_UVM/rtl/spi_ip.sv,,spi_uvc_if,,uvm,,GIT_DIR="/home/nami/SPI_UVM/verification/uvm",,,,
 /home/nami/SPI_UVM/verification/uvm/tb/tb.sv,1747327277,systemVerilog,,,/tools/Xilinx/Vivado/2024.2/data/xsim/system_verilog/uvm_include/uvm_macros.svh,tb,,uvm,,GIT_DIR="/home/nami/SPI_UVM/verification/uvm",,,,
-/home/nami/SPI_UVM/verification/uvm/tests/top_test.sv,1747282971,verilog,,,,,,,,,,,,
-/home/nami/SPI_UVM/verification/uvm/tests/top_test_pkg.sv,1747280166,systemVerilog,/home/nami/SPI_UVM/verification/uvm/tb/tb.sv,/home/nami/SPI_UVM/verification/uvm/tb/tb.sv,/tools/Xilinx/Vivado/2024.2/data/xsim/system_verilog/uvm_include/uvm_macros.svh;/home/nami/SPI_UVM/verification/uvm/tests/top_test.sv,top_test_pkg,,uvm,,GIT_DIR="/home/nami/SPI_UVM/verification/uvm",,,,
+/home/nami/SPI_UVM/verification/uvm/tests/top_test.sv,1747330998,verilog,,,,,,,,,,,,
+/home/nami/SPI_UVM/verification/uvm/tests/top_test_pkg.sv,1747331098,systemVerilog,/home/nami/SPI_UVM/verification/uvm/tb/tb.sv,/home/nami/SPI_UVM/verification/uvm/tb/tb.sv,/tools/Xilinx/Vivado/2024.2/data/xsim/system_verilog/uvm_include/uvm_macros.svh;/home/nami/SPI_UVM/verification/uvm/tests/top_test.sv,top_test_pkg,,uvm,,GIT_DIR="/home/nami/SPI_UVM/verification/uvm",,,,
 /tools/Xilinx/Vivado/2024.2/data/xsim/system_verilog/uvm_include/uvm_macros.svh,1724786435,verilog,,,,,,,,,,,,

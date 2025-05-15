@@ -11,6 +11,7 @@ package top_test_pkg;
   import uvm_pkg::*;
 
   //archivos
+      import top_env_pkg::*; // SE DEBE COMPILAR PRIMERO EL ENV, ES DECIR SE COMPILE ANTES
   `include "top_test.sv"
 
 endpackage : top_test_pkg
