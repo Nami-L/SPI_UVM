@@ -1,0 +1,1 @@
+/home/nami/SPI_UVM/verification/uvm/scripts/setup/setup_vivado_eda.sh
