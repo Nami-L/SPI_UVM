@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/nami/SPI_UVM/rtl/spi_ip.sv" into library work
+INFO: [VRFC 10-311] analyzing module spi_ip
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/nami/SPI_UVM/verification/uvm/tests/top_test_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/nami/SPI_UVM/verification/uvm/tb/tb.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb

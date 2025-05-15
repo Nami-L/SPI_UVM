@@ -1,0 +1,1 @@
+"tb" -debug "all" -s "work.tb" -mt "10" -timescale "1ns/100ps" -L "work" -L "xil_defaultlib" -L "uvm" -log "/home/nami/SPI_UVM/work/uvm/logs/elaborate.log" 
