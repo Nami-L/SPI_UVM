@@ -65,7 +65,7 @@ SVE = -f $(UVM_DIR)/sve.f
 VERDI_FILE = $(VERDI_DIR)/verdi.tcl
 DPI_FILE = $(DPI_DIR)/external.o
 
-# UVCs
+# UVCs : Aqui se coloca la interfaz
 UVCS = -f $(UVM_DIR)/spi_uvc.f
 
 # Vivado XVLOG/XELAB/XSIM options

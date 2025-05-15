@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Wed May 14 22:39:00 2025
-# Process ID         : 36381
+# Start of session at: Thu May 15 10:42:01 2025
+# Process ID         : 40561
 # Current directory  : /home/nami/SPI_UVM/work/uvm/sim
 # Command line       : xsim -log /home/nami/SPI_UVM/work/uvm/logs/simulate.log -mode tcl -source {xsim.dir/work.tb/xsim_script.tcl}
 # Log file           : /home/nami/SPI_UVM/work/uvm/logs/simulate.log
@@ -19,7 +19,7 @@
 # Host memory        : 8078 MB
 # Swap memory        : 2243 MB
 # Total Virtual      : 10322 MB
-# Available Virtual  : 6352 MB
+# Available Virtual  : 6600 MB
 #-----------------------------------------------------------
 source xsim.dir/work.tb/xsim_script.tcl
 source /home/nami/SPI_UVM/verification/uvm/scripts/vivado/run.tcl

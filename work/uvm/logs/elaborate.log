@@ -13,6 +13,7 @@ Time Resolution for simulation is 1ps
 Compiling package uvm.uvm_pkg
 Compiling package std.std
 Compiling package work.top_test_pkg
+Compiling module work.spi_uvc_if_default
 Compiling module work.spi_ip
 Compiling module work.tb
 Built simulation snapshot work.tb
