@@ -11,6 +11,12 @@ package spi_uvc_pkg;
   import uvm_pkg::*;
 
   //archivos
+  `include "spi_uvc_types.sv"
+  `include "spi_uvc_sequence_item.sv"
+  `include "spi_uvc_config.sv"
+  `include "spi_uvc_sequencer.sv"
+  `include "spi_uvc_driver.sv"
+  `include "spi_uvc_monitor.sv"
   `include "spi_uvc_agent.sv"
 
 endpackage : spi_uvc_pkg

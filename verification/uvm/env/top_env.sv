@@ -7,8 +7,11 @@ class top_env extends uvm_env;
 //Como es un componente, colocar el macro de componente
 `uvm_component_utils(top_env)
 //CREAR UN AGENTE: EN ENVIRONMENT INCLUYE EL AGENTE
+//Crear el ambien te configuracion minuto1:10:7
 
-spi_uvc_agent m_spi_agent; // CREACION DEL AGENTE, HAY QUE CONSTRUIRLO
+//spi_uvc_config m_spi_config;
+spi_uvc_config m_spi_config;
+spi_uvc_agent m_spi_agent; // CREACION DEL AGENTE, HAY QUE CONSTRUIRLO m:miembro
 
 //va a tener 3 fases, constructos, build, connect
 
@@ -32,6 +35,9 @@ endfunction:new
 
 function void top_env::build_phase(uvm_phase phase);
 //CONSTRUIR EL AGENTE QUE HEMOS CREADO  
+m_spi_config = spi_uvc_config::type_id::create("m_spi_config");
+m_spi_config.is_active = UVM_ACTIVE;
+uvm_config_db#(spi_uvc_config)::set(this, "m_spi_agent*", "config", m_spi_config);
 m_spi_agent = spi_uvc_agent::type_id::create("m_spi_agent",this);
 endfunction:build_phase
 

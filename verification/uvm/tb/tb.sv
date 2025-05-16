@@ -52,6 +52,8 @@ spi_ip dut(
     //vas a pasar un tipo virtual y ponemos set para guardarlo adentro y despues decimos uvm_test_top 
     //vamos a llamar una función que se llama uvm.config y necesita un tipo de mi interfaz, despues pongo set porque se va a guardar ahí, y le damos aun path, test, env, y agent, y todo lo que este en agent puedes utilizarlo
       uvm_config_db#(virtual spi_uvc_if)::set(null, "uvm_test_top.m_env.m_spi_agent", "vif", spi_vif); //path,elmento "vif", nombre del archivo interfaz, acceder a la interfaz virtual
+    //AGREGA a la base de datos UNA INTERFAZ TIPO SPI_VIF y mandala a test, env y spi_agent, es como .
+    //estoy diciewndo   que esta interfaz tiene acceso al agent y todo lo de abajo
     run_test();
   end
 
