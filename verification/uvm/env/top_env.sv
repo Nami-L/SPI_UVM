@@ -12,9 +12,10 @@ class top_env extends uvm_env;
 //spi_uvc_config m_spi_config;
 spi_uvc_config m_spi_config;
 spi_uvc_agent m_spi_agent; // CREACION DEL AGENTE, HAY QUE CONSTRUIRLO m:miembro
+  top_vsqr        vsqr;
 
 //va a tener 3 fases, constructos, build, connect
-
+ 
 //Agregar primero el constructor
 extern function new(string name, uvm_component parent);
 // Crear el environment
@@ -37,11 +38,18 @@ function void top_env::build_phase(uvm_phase phase);
 //CONSTRUIR EL AGENTE QUE HEMOS CREADO  
 m_spi_config = spi_uvc_config::type_id::create("m_spi_config");
 m_spi_config.is_active = UVM_ACTIVE;
+//Tambien añado eal data base todo lo que esta abajo del agente.
 uvm_config_db#(spi_uvc_config)::set(this, "m_spi_agent*", "config", m_spi_config);
 m_spi_agent = spi_uvc_agent::type_id::create("m_spi_agent",this);
+
+//crear la libreria de secuenciadores
+  vsqr = top_vsqr::type_id::create("vsqr", this);
+
 endfunction:build_phase
 
 function void top_env::connect_phase(uvm_phase phase);
+  vsqr.m_spi_sequencer = m_spi_agent.m_sequencer;//video 5 minuto 20
+
 endfunction:connect_phase
 
 `endif // TOP_ENV_SV

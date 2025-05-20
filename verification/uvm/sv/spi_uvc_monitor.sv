@@ -9,7 +9,13 @@ class spi_uvc_monitor extends uvm_monitor;
 
   virtual spi_uvc_if                         vif;
   spi_uvc_config                             m_config;
-  spi_uvc_sequence_item                      m_trans;
+  spi_uvc_sequence_item                      m_trans; // un solo objeto que se instancia
+
+
+//VARIABLES AUXILIARES
+
+byte data_mosi;
+byte data_miso;
 
   extern function new(string name, uvm_component parent);
 
@@ -26,6 +32,7 @@ endfunction : new
 
 
 function void spi_uvc_monitor::build_phase(uvm_phase phase);
+//EL MONITOR TIENE ACCESO A LA INTERFAZ Y AL ARCHIVO DE CONFIGURACION
   if (!uvm_config_db#(virtual spi_uvc_if)::get(get_parent(), "", "vif", vif)) begin
     `uvm_fatal(get_name(), "Could not retrieve spi_uvc_if from config db")
   end
@@ -39,16 +46,37 @@ endfunction : build_phase
 
 
 task spi_uvc_monitor::run_phase(uvm_phase phase);
+//ESTA TRANSACCION SE MANDA AL PUERTO DE ANALISIS
   m_trans = spi_uvc_sequence_item::type_id::create("m_trans");
-  //do_mon();
+  do_mon();
 endtask : run_phase
 
 
 task spi_uvc_monitor::do_mon();
   forever begin
-    `uvm_info(get_type_name(), {"\n ------ MONITOR (GPIO UVC) ------ ", m_trans.convert2string()}, UVM_DEBUG)
+    for (int idx= 7; idx >=0; idx--) begin
+    //como la captura de datos en el flanco de subida, entonces necesitamos un detector de flancos
+      wait (vif.sclk_o != 1);
+      @(vif.cb_mon iff (vif.sclk_o == 1));
+    data_mosi[idx] = vif.mosi_o; //captura las señales de la interfaz
+    data_miso[idx] = vif.miso_i;
+    end
+    
+    // para mandar la transacion, necesitamos mandarlos 
+    m_trans.m_data_mosi= data_mosi;
+    m_trans.m_data_miso= data_miso;
+
+
+    wait(vif.spi_done_tick_o !=1);
+@(vif.cb_drv iff (vif.spi_done_tick_o ==1));
+    //ESTA PUERTO DE ANALISIS  SE COENCAT DESDE EL MONITOR A LA SALIDA DEL AGENTE
+    `uvm_info(get_type_name(), {"\n ------ MONITOR (SPI UVC) ------ ", m_trans.convert2string()}, UVM_DEBUG)
     analysis_port.write(m_trans);
   end
+  
 endtask : do_mon
+
+
+
 
 `endif // SPI_UVC_MONITOR_SV

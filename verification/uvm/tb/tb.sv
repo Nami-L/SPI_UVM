@@ -14,7 +14,7 @@ module tb;
 
   //Reset signal
 
-  logic reset_i = 0;
+  logic reset_i = 1;
   initial begin
     repeat (2) @(posedge clk_i);
     reset_i = 1;
@@ -35,7 +35,7 @@ spi_ip dut(
      .clk_i             (spi_vif.clk_i),            //Reloj de entrada
      .reset_i           (spi_vif.reset_i),          // reset Asincrono
      .din_i             (spi_vif.din_i),            //Datos de Entrada 8 bits
-     .dvsr_i            ('d50),          //Determinara el ciclo de sclk_o. 
+     .dvsr_i            ('d9),          //Determinara el ciclo de sclk_o. 
      .start_i           (spi_vif.start_i),          //bandera de iniciar
      .cpol_i            (1'b0),           //Polaridad del reloj
      .cpha_i            (1'b0),           //Fase del reloj. (Cphol y Cpha me definen el modo de slck)
@@ -43,7 +43,7 @@ spi_ip dut(
      .spi_done_tick_o   (spi_vif.spi_done_tick_o),//Bandera de fin
      .ready_o           (spi_vif.ready_o),           //Bandera Para transmitir
      .sclk_o            (spi_vif.sclk_o),           //Reloj para la transmision de datos
-     .miso_i            (1'b0),           //
+     .miso_i            (spi_vif.miso_i),           //
      .mosi_o            (spi_vif.mosi_o)  
 );
 

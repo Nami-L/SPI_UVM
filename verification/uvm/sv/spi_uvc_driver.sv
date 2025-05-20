@@ -14,6 +14,9 @@ extern function new(string name, uvm_component parent);
   extern function void build_phase(uvm_phase phase);
   extern task run_phase(uvm_phase phase);
   extern task do_drive();
+  extern task cmd_read();
+  extern task cmd_write();
+
   
 
 
@@ -42,6 +45,36 @@ task spi_uvc_driver::run_phase(uvm_phase phase);
   end
 endtask : run_phase
 
+
+task spi_uvc_driver::cmd_write();
+vif.cb_drv.din_i <= req.m_data;//envio el dato
+@(vif.cb_drv);//sincronizo
+vif.cb_drv.start_i <=1'b1;//ACTIVO EL START
+@(vif.cb_drv);//ESPERO UN FLANCO DE SUBIDA
+vif.cb_drv.start_i <=1'b0;//DESACTIVO EL START
+endtask : cmd_write
+
+task spi_uvc_driver::cmd_read();
+vif.cb_drv.din_i <= 'd0;//envio el dato
+@(vif.cb_drv);//sincronizo
+vif.cb_drv.start_i <=1'b1;//ACTIVO EL START
+@(vif.cb_drv);//ESPERO UN FLANCO DE SUBIDA
+vif.cb_drv.start_i <=1'b0;//DESACTIVO EL START
+
+endtask : cmd_read
+
 task spi_uvc_driver::do_drive();
+  `uvm_info(get_type_name(), {"\n ------ DRIVER (SPI UVC) ------", req.convert2string()}, UVM_DEBUG)
+if(req.m_cmd==SPI_UVC_WRITE) begin
+  cmd_write();
+end else begin
+  cmd_read();
+  
+end
+wait(vif.spi_done_tick_o !=1);
+@(vif.cb_drv iff (vif.spi_done_tick_o ==1));
+
+
+
 endtask : do_drive
 `endif // SPI_UVC_DRIVER_SV

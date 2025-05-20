@@ -17,14 +17,24 @@ interface spi_uvc_if (
      logic ready_o;  //Bandera Para transmitir
      logic sclk_o;  //Reloj para la transmision de datos
      logic mosi_o;  //Salida de datos.
+       logic        miso_i;
+
 
     //El bloque cb_drv es usado por un driver, y su tarea es manejar el DUT (Device Under Test), es decir, enviarle estímulos:
 
+     initial begin
+     din_i= 'd0;
+     start_i= 'd0;
+      miso_i = 'd0;
+          
+     end
 
      clocking cb_drv @(posedge clk_i);
      default output #5ns;
      output din_i;
      output start_i;
+     output  miso_i;
+
      endclocking
 //El bloque cb_mon es usado por el monitor, y su función es leer el comportamiento del DUT para verificar si se comporta correctamente:
      clocking cb_mon @(posedge clk_i);
@@ -34,6 +44,8 @@ interface spi_uvc_if (
      input ready_o;  //Bandera Para transmitir
      input sclk_o; //Reloj para la transmision de datos
      input mosi_o; //Salida de datos.
+     input miso_i;
+
      endclocking:cb_mon
 
 endinterface: spi_uvc_if

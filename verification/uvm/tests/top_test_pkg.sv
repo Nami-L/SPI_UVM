@@ -12,6 +12,8 @@ package top_test_pkg;
     import spi_uvc_pkg::*; //SE PEGA ABAJO DE UVM TANTO EN EL TEST COMO EL ENVIRONMETE
   import top_env_pkg::*; // SE DEBE COMPILAR PRIMERO EL ENV, ES DECIR SE COMPILE ANTES
         //archivos
+    `include "top_test_vseq.sv"
+
   `include "top_test.sv"
 
 endpackage : top_test_pkg

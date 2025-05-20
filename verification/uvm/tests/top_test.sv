@@ -15,6 +15,7 @@ class top_test extends uvm_test;
   `uvm_component_utils(top_test)
   //instanciar el environment, declarando el objeto
     top_env m_env ;//: PARA PODER TENER ACCESO AL ENV, TENEMOS QUE AGREGARLO EN EL PACKAGE DEL TOP
+    top_test_vseq  vseq;
 
 //Agregar primero el constructor
 extern function new(string name, uvm_component parent);
@@ -43,13 +44,24 @@ uvm_root ::get().print_topology();
 uvm_factory::get().print();
 endfunction:end_of_elaboration_phase
 
+
+
 task top_test::run_phase(uvm_phase phase);
+//crear la secuencia 
+//spi_uvc_sequence_base seq;
+//seq= spi_uvc_sequence_base::type_id::create("seq");
+
 //para activar el RUN_phase es decir, la simulación
   phase.raise_objection(this);
-    `uvm_info(get_name(), "Hola Nami", UVM_MEDIUM);
-    `uvm_info(get_name(), "Esto es UVM con vivado", UVM_MEDIUM);
 
+  //AQUI COLOCAR TODAS LAS SECUENCIAS O PRUEBAS A CORRER
 
+  //seq.start(m_env.m_spi_agent.m_sequencer);
+  //  `uvm_info(get_name(), "Hola Nami", UVM_MEDIUM);
+  //  `uvm_info(get_name(), "Esto es UVM con vivado", UVM_MEDIUM);
+
+  vseq = top_test_vseq::type_id::create("vseq");
+  vseq.start(m_env.vsqr);
   phase.drop_objection(this);
 endtask : run_phase
 

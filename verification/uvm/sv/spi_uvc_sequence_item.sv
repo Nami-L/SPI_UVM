@@ -64,8 +64,8 @@ function string spi_uvc_sequence_item::convert2string();
   string cmd_str;
   s = super.convert2string();
   cmd_str = (m_cmd == SPI_UVC_WRITE) ? "SPI_UVC_WRITE" : "SPI_UVC_READ";
-  //$sformat(s, {s, "\n", "TRANSACTION INFORMATION (SPI UVC):"});
-  //$sformat(s, {s, "\n", "m_cmd = %10s, m_data = %4d"}, cmd_str, m_data);
+  $sformat(s, {s, "\n", "TRANSACTION INFORMATION (SPI UVC):"});
+  $sformat(s, {s, "\n", "m_cmd = %10s, m_data = %4d"}, cmd_str, m_data);
   $sformat(s, {s, "\n", "m_data_mosi = %5d, m_data_miso = %5d\n"}, m_data_mosi, m_data_miso);
   return s;
 endfunction : convert2string
